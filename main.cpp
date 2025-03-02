@@ -166,54 +166,37 @@ int main() {
     while (true)
     {
         std::cout << "Choose one of the following games to start playing or exit the program\n";
-        std::cout << "1. Four in a Row\n";
-        std::cout << "2. Numerical Tic Tac Toe\n";
-        std::cout << "3. 5x5 Tic Tac Toe\n";
-        std::cout << "4. Misere Tic Tac Toe\n";
-        std::cout << "5. Pyramid Tic Tac Toe\n";
-        std::cout << "6. Word Tic Tac Toe\n";
-        std::cout << "7. 4x4 Tic Tac Toe\n";
-        std::cout << "8. Ultimate Tic Tac Toe\n";
-        std::cout << "9. Exit\n";
+        std::cout << "1. Pyramid Tic Tac Toe\n";
+        std::cout << "2. Word Tic Tac Toe\n";
+        std::cout << "3. Ultimate Tic Tac Toe\n";
+        std::cout << "0. Exit\n";
+
         while (true)
         {
             std::cout << "Enter Your choice: ";
             std::getline(std::cin >> std::ws, choiceString);
-            if(choiceString.length() != 1 || choiceString[0] > '9' || choiceString[0] < '1')
+            if(choiceString.length() != 1 || choiceString[0] > '3' || choiceString[0] < '0')
             {
                 std::cout << "Invalid choice\n";
                 continue;
             }
             break;
         }
+
         choice = choiceString[0] - '0';
+
         switch (choice) {
+            case 0:
+                return 0;
             case 1:
-                fourInaRow();
-                break;
-            case 2:
-                numericalTicTacToe();
-                break;
-            case 3:
-                _5x5();
-                break;
-            case 4:
-                misere();
-                break;
-            case 5:
                 pyramidtTicTacToe();
                 break;
-            case 6:
+            case 2:
                 WordTicTacToe();
                 break;
-            case 7:
-                ticTacToe4x4();
-                break;
-            case 8:
+            case 3:
                 ultimateXO();
                 break;
-            case 9:
-                return 0;
             default:
                 return 0;
         }
